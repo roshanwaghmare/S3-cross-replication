@@ -1,0 +1,30 @@
+{
+    "Version": "2012-10-17",
+    "Id": "",
+    "Statement": [
+        {
+            "Sid": "1",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::767397866810:role/service-role/s3crr_role_for_multi-region-s3-sana"
+            },
+            "Action": [
+                "s3:ReplicateObject",
+                "s3:ReplicateDelete"
+            ],
+            "Resource": "arn:aws:s3:::destination-bucket-sana1/*"
+        },
+        {
+            "Sid": "2",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::767397866810:role/service-role/s3crr_role_for_multi-region-s3-sana"
+            },
+            "Action": [
+                "s3:GetBucketVersioning",
+                "s3:PutBucketVersioning"
+            ],
+            "Resource": "arn:aws:s3:::destination-bucket-sana1"
+        }
+    ]
+}
